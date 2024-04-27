@@ -14,7 +14,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DEBUG = bool(int(os.environ.get("DEBUG", 0)))
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
-LOCAL_APPS = []
+LOCAL_APPS = [
+    'src.authentication.apps.AuthenticationConfig',
+    'src.authorization.apps.AuthorizationConfig',
+    'src.utils.apps.UtilsConfig',
+    'src.customer.apps.CustomerConfig',
+]
 
 THIRD_PARTY_APPS = [
     'corsheaders',
@@ -64,7 +69,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'core.wsgi.application'
-AUTH_USER_MODEL = 'accounts.User'
+# AUTH_USER_MODEL = 'accounts.User'
 
 DATABASES = {
     'default': {
@@ -98,4 +103,3 @@ USE_L10N = True
 LANGUAGE_CODE = 'en-us'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
