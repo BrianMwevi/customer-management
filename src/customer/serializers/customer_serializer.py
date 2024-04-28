@@ -1,29 +1,6 @@
 from rest_framework import serializers
-from src.customer.models import County, SubCounty, Ward, Location, BusinessCategory, Business, Customer
-
-
-class CountySerializer(serializers.ModelSerializer):
-    class Meta:
-        model = County
-        fields = '__all__'
-
-
-class SubCountySerializer(serializers.ModelSerializer):
-    class Meta:
-        model = SubCounty
-        fields = '__all__'
-
-
-class WardSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Ward
-        fields = '__all__'
-
-
-class LocationSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Location
-        fields = '__all__'
+from src.customer.models import BusinessCategory, Business, Customer
+from src.location.location_serializer import LocationSerializer
 
 
 class BusinessCategorySerializer(serializers.ModelSerializer):
@@ -33,8 +10,7 @@ class BusinessCategorySerializer(serializers.ModelSerializer):
 
 
 class BusinessSerializer(serializers.ModelSerializer):
-    category = BusinessCategorySerializer(read_only=True)
-    location = LocationSerializer(read_only=True)
+    location = LocationSerializer()
 
     class Meta:
         model = Business
@@ -42,7 +18,7 @@ class BusinessSerializer(serializers.ModelSerializer):
 
 
 class CustomerSerializer(serializers.ModelSerializer):
-    business = BusinessSerializer(read_only=True)
+    business = BusinessSerializer()
 
     class Meta:
         model = Customer
