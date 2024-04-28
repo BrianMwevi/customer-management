@@ -1,6 +1,6 @@
 from django.db.models import QuerySet
 
-from src.customer.models import BusinessCategory, Business, Customer
+from src.customer.models import BusinessCategory, Business, Customer, BusinessCustomer
 
 
 class CustomerService:
@@ -28,3 +28,7 @@ class CustomerService:
     @staticmethod
     def filter_customers(**kwargs) -> QuerySet[Customer]:
         return Customer.objects.filter(**kwargs)
+
+    @staticmethod
+    def create_business_customer(**kwargs) -> BusinessCustomer:
+        return BusinessCustomer.objects.create(**kwargs)

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from src.customer.models import BusinessCategory, Business, Customer
+from src.customer.models import BusinessCategory, Business, Customer, BusinessCustomer
 
 
 class BusinessCategorySerializer(serializers.ModelSerializer):
@@ -15,8 +15,15 @@ class BusinessSerializer(serializers.ModelSerializer):
 
 
 class CustomerSerializer(serializers.ModelSerializer):
-    business = BusinessSerializer()
-
     class Meta:
         model = Customer
+        fields = '__all__'
+
+
+class BusinessCustomerSerializer(serializers.ModelSerializer):
+    business = BusinessSerializer()
+    customer = CustomerSerializer()
+
+    class Meta:
+        model = BusinessCustomer
         fields = '__all__'
