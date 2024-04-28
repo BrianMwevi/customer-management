@@ -18,6 +18,7 @@ LOCAL_APPS = [
     'src.authentication.apps.AuthenticationConfig',
     'src.authorization.apps.AuthorizationConfig',
     'src.utils.apps.UtilsConfig',
+    'src.location.apps.LocationConfig',
     'src.customer.apps.CustomerConfig',
 ]
 
