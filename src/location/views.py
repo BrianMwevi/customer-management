@@ -34,12 +34,3 @@ class WardRetrieveUpdateView(RetrieveUpdateAPIView):
     queryset = LocationService.filter_wards()
     serializer_class = location_serializer.WardSerializer
 
-
-class LocationListCreateView(ListCreateAPIView):
-    queryset = LocationService.filter_counties()
-    serializer_class = location_serializer.LocationSerializer
-
-
-class LocationRetrieveUpdateView(RetrieveUpdateAPIView):
-    queryset = LocationService.filter_counties()
-    serializer_class = location_serializer.LocationSerializer

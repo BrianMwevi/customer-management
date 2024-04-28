@@ -1,6 +1,5 @@
 from rest_framework import serializers
 from src.customer.models import BusinessCategory, Business, Customer
-from src.location.location_serializer import LocationSerializer
 
 
 class BusinessCategorySerializer(serializers.ModelSerializer):
@@ -10,8 +9,6 @@ class BusinessCategorySerializer(serializers.ModelSerializer):
 
 
 class BusinessSerializer(serializers.ModelSerializer):
-    location = LocationSerializer()
-
     class Meta:
         model = Business
         fields = '__all__'

@@ -1,6 +1,6 @@
 from django.db.models import QuerySet
 
-from src.location.models import County, SubCounty, Ward, Location
+from src.location.models import County, SubCounty, Ward
 
 
 class LocationService:
@@ -28,10 +28,3 @@ class LocationService:
     def filter_wards(**kwargs) -> QuerySet[Ward]:
         return Ward.objects.filter(**kwargs)
 
-    @staticmethod
-    def create_location(**kwargs) -> Location:
-        return Location.objects.create(**kwargs)
-
-    @staticmethod
-    def filter_locations(**kwargs) -> QuerySet[Location]:
-        return Location.objects.filter(**kwargs)

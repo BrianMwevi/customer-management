@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 
-from src.location.models import  Location
+from src.location.models import Ward
 from src.utils.models import TimeStamped
 
 
@@ -13,10 +13,12 @@ class BusinessCategory(TimeStamped):
 
 
 class Business(TimeStamped):
-    name = models.CharField(max_length=100)
-    category = models.ForeignKey(BusinessCategory, on_delete=models.CASCADE, related_name='category_businesses')
+    business_name = models.CharField(max_length=100)
+    building_name = models.CharField(max_length=100)
+    floor = models.CharField(max_length=255, blank=True, null=True)
     registration_date = models.DateField()
-    location = models.ForeignKey(Location, on_delete=models.CASCADE, related_name='location_businesses')
+    category = models.ForeignKey(BusinessCategory, on_delete=models.CASCADE, related_name='category_businesses')
+    ward = models.ForeignKey(Ward, on_delete=models.CASCADE, related_name='locations', null=True)
 
     @property
     def age(self):

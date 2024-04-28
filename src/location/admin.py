@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import County, SubCounty, Ward, Location
+from .models import County, SubCounty, Ward
 
 
 def get_model_fields(model):
@@ -21,7 +21,3 @@ class SubCountyAdmin(admin.ModelAdmin):
 class WardAdmin(admin.ModelAdmin):
     list_display, search_fields = get_model_fields(Ward)
 
-
-@admin.register(Location)
-class LocationAdmin(admin.ModelAdmin):
-    list_display, search_fields = get_model_fields(Location)

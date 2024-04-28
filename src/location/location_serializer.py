@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from src.location.models import County, SubCounty, Ward, Location
+from src.location.models import County, SubCounty, Ward
 
 
 class CountySerializer(serializers.ModelSerializer):
@@ -21,7 +21,3 @@ class WardSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class LocationSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Location
-        fields = '__all__'
