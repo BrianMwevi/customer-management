@@ -17,20 +17,20 @@ class Ward(TimeStamped):
     sub_county = models.ForeignKey(SubCounty, on_delete=models.CASCADE, related_name='wards')
 
 
-class Location(models.Model):
+class Location(TimeStamped):
     building_name = models.CharField(max_length=100)
     floor = models.CharField(max_length=255, blank=True, null=True)
     ward = models.ForeignKey(Ward, on_delete=models.CASCADE, related_name='locations')
 
 
-class BusinessCategory(models.Model):
+class BusinessCategory(TimeStamped):
     name = models.CharField(max_length=100, unique=True)
 
     def __str__(self):
         return self.name
 
 
-class Business(models.Model):
+class Business(TimeStamped):
     name = models.CharField(max_length=100)
     category = models.ForeignKey(BusinessCategory, on_delete=models.CASCADE, related_name='category_businesses')
     registration_date = models.DateField()
@@ -42,7 +42,7 @@ class Business(models.Model):
         return (today - self.registration_date).days // 365
 
 
-class Customer(models.Model):
+class Customer(TimeStamped):
     name = models.CharField(max_length=100)
     phone = models.CharField(max_length=20)
     email = models.EmailField()
