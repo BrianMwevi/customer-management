@@ -8,8 +8,8 @@ from src.utils.models import TimeStamped
 class BusinessCategory(TimeStamped):
     name = models.CharField(max_length=100, unique=True)
 
-    def __str__(self):
-        return self.name
+    class Meta:
+        verbose_name_plural = 'Business categories'
 
 
 class Business(TimeStamped):
@@ -24,6 +24,9 @@ class Business(TimeStamped):
     def age(self):
         today = timezone.now().date()
         return (today - self.registration_date).days // 365
+
+    class Meta:
+        verbose_name_plural = 'Businesses'
 
 
 class Customer(TimeStamped):

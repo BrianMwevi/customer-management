@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import BusinessCategory, Business, Customer
+from .models import BusinessCategory, Business, Customer, BusinessCustomer
 
 
 def get_model_fields(model):
@@ -22,3 +22,8 @@ class BusinessAdmin(admin.ModelAdmin):
 @admin.register(Customer)
 class CustomerAdmin(admin.ModelAdmin):
     list_display, search_fields = get_model_fields(Customer)
+
+
+@admin.register(BusinessCustomer)
+class BusinessCustomerAdmin(admin.ModelAdmin):
+    list_display, search_fields = get_model_fields(BusinessCustomer)
