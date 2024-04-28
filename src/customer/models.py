@@ -28,8 +28,8 @@ class Business(TimeStamped):
 
 class Customer(TimeStamped):
     name = models.CharField(max_length=100)
-    phone = models.CharField(max_length=20)
-    email = models.EmailField()
+    phone = models.CharField(max_length=20, unique=True)
+    email = models.EmailField(unique=True)
     date_of_birth = models.DateField()
     nationality = models.CharField(max_length=100)
 
@@ -37,3 +37,6 @@ class Customer(TimeStamped):
 class BusinessCustomer(TimeStamped):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='businesses')
     business = models.ForeignKey(Business, on_delete=models.CASCADE, related_name='customers')
+
+    class Meta:
+        unique_together = ('customer', 'business')
