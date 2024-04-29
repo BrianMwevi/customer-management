@@ -23,7 +23,7 @@ This is a Django REST API designed to manage customer information for businesses
 1. Clone the repository:
 
 ```
-git clone https://github.com/your-repo/customer-management-api.git
+git clone https://github.com/brianmwevi/customer-management-api.git
 ```
 
 2. Navigate to the project directory:
@@ -50,7 +50,7 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-The API will be accessible at `http://localhost:8000/api/`.
+The API will be accessible at `http://127.0.0.1:8000/api/`.
 
 ## API Endpoints
 
