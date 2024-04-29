@@ -28,6 +28,7 @@ THIRD_PARTY_APPS = [
     'rest_framework_simplejwt.token_blacklist',
     'django_filters',
     'drf_spectacular',
+    'django_extensions',
 ]
 
 INSTALLED_APPS = [
@@ -70,7 +71,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'core.wsgi.application'
-# AUTH_USER_MODEL = 'accounts.User'
+AUTH_USER_MODEL = 'authentication.User'
 
 DATABASES = {
     'default': {
